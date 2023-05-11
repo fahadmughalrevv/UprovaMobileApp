@@ -10,12 +10,12 @@ const Login = (props: any) => {
     return (
         <View style={styles.container}>
             <View style={styles.upperPart}>
-                <Image resizeMode='contain' style={{ flex: 0.5, width: '40%' }} source={require('../../assets/images/logo.png')} />
-                <Text style={styles.headingText}>Login to your Account</Text>
+                <Image resizeMode='contain' style={styles.upperLogo} source={require('../../assets/images/logo.png')} />
+                <Text style={[styles.headingText, {color:COLORS.WHITE}]}>Login to your Account</Text>
             </View>
-            <View style={{ flex: 0.6, }}>
+            <View style={styles.body}>
                 <View style={styles.whiteContainer}>
-                    <View style={{ padding: '2.5%' }}>
+                    <View style={styles.innerPadding}>
                         <TextInput mode='outlined' label='Email Address' placeholder='Email Address' style={styles.inputField} />
                         <TextInput secureTextEntry={true} mode='outlined' label='Password' placeholder='Password'style={styles.inputField} />
                         <ToggleSwitch
@@ -27,32 +27,32 @@ const Login = (props: any) => {
                             size="medium"
                             onToggle={isOn => setSwitch(isOn)}
                         />
-                        <MainButton/>
+                        <MainButton text='Login'/>
                        
-                        <View style={styles.whiteContainerFooter}>
+                        <View style={[styles.whiteContainerFooter, {height:140}]}>
                             <TouchableOpacity onPress={()=> props.navigation.navigate('ForgotPassword')}>
                                 <Text style={[styles.basicText, {color:COLORS.PRIMARYPURPLE}]}>Forgot Password</Text>
                             </TouchableOpacity>
-                            <View style={{ flexDirection: 'row' }}>
+                            <View style={styles.footerLine}>
                                 <Text style={styles.basicText}>Haven't Setup Your Account yet?</Text>
                                 <TouchableOpacity onPress={() => props.navigation.navigate('Register')}>
                                     <Text style={[styles.basicText, {color:COLORS.PRIMARYPURPLE}]}>  Register</Text>
                                 </TouchableOpacity>
                             </View>
                             <TouchableOpacity>
-                                <Text style={{ fontSize: 18, fontWeight: '500', color: COLORS.PRIMARYPURPLE }} >Face ID</Text>
+                                <Text style={[styles.basicText, {color:COLORS.PRIMARYPURPLE}]} >Face ID</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
-                    <View style={{ height: 60, borderBottomLeftRadius: 20, borderBottomRightRadius: 20, backgroundColor: 'lightgrey', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
+                    <View style={styles.innerFooterContainer}>
                         <TouchableOpacity>
-                            <Text style={{ fontSize: 14, fontWeight: '500', color: COLORS.BLACK }}>Help</Text>
+                            <Text style={[styles.basicText, {color:COLORS.BLACK}]}>Help</Text>
                         </TouchableOpacity>
                         <TouchableOpacity>
-                            <Text style={{ fontSize: 14, fontWeight: '500', color: COLORS.BLACK }}>Terms & Conditions</Text>
+                            <Text style={[styles.basicText, {color:COLORS.BLACK}]}>Terms & Conditions</Text>
                         </TouchableOpacity>
                         <TouchableOpacity>
-                            <Text style={{ fontSize: 14, fontWeight: '500', color: COLORS.BLACK }}>Privacy Policty</Text>
+                            <Text style={[styles.basicText, {color:COLORS.BLACK}]}>Privacy Policty</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
